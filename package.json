@@ -9,30 +9,54 @@
   "files": [
     "src"
   ],
-  "main": "src/index.js",
+  "main": "lib/es2018/index.js",
+  "types": "lib/es2018/index.d.ts",
   "repository": "git@github.com:BlackGlory/jest-resolver.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
+    "test": "jest --config jest.config.js",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test:coverage": "jest --coverage --config jest.config.js",
+    "prepublishOnly": "run-s clean build",
+    "clean": "rimraf lib",
+    "build": "run-p build:*",
+    "build:es2015": "run-s build:es2015:*",
+    "build:es2015:compile": "tsc --project tsconfig.build.json --target es2015 --outDir lib/es2015",
+    "build:es2015:patch": "tscpaths -p tsconfig.build.json -s ./src -o ./lib/es2015",
+    "build:es2018": "run-s build:es2018:*",
+    "build:es2018:compile": "tsc --project tsconfig.build.json --target es2018 --outDir lib/es2018",
+    "build:es2018:patch": "tscpaths -p tsconfig.build.json -s ./src -o ./lib/es2018",
     "release": "standard-version"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "",
+      "pre-commit": "run-s lint build",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "enhanced-resolve": "^5.9.3"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@types/jest": "^28.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.14.0",
     "husky": "^4.3.0",
-    "jest": "^28.0.3",
+    "jest": "^28.1.1",
+    "jest-resolve": "^28.1.1",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "standard-version": "^9.3.2"
+    "standard-version": "^9.5.0",
+    "ts-jest": "^28.0.0-next.3",
+    "tscpaths": "^0.0.9",
+    "typescript": "^4.6.4"
   },
   "peerDependencies": {
-    "jest": "^28.0.3"
+    "jest-resolve": "^28.1.1"
   }
 }
