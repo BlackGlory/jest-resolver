@@ -1,0 +1,38 @@
+{
+  "name": "@blackglory/jest-resolver",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "jest",
+    "resolver"
+  ],
+  "files": [
+    "src"
+  ],
+  "main": "src/index.js",
+  "repository": "git@github.com:BlackGlory/jest-resolver.git",
+  "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
+  "license": "MIT",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "husky": "^4.3.0",
+    "jest": "^28.0.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.2"
+  },
+  "peerDependencies": {
+    "jest": "^28.0.3"
+  }
+}
