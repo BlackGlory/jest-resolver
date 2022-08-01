@@ -14,6 +14,7 @@
   "repository": "git@github.com:BlackGlory/jest-resolver.git",
   "author": "BlackGlory <woshenmedoubuzhidao@blackglory.me>",
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
     "test": "jest --coverage --config jest.config.js",
