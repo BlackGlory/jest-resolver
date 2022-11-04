@@ -17,7 +17,7 @@
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
-    "test": "jest --coverage --config jest.config.js",
+    "test": "jest --passWithNoTests --coverage --config jest.config.js",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "test:coverage": "jest --coverage --config jest.config.js",
     "prepublishOnly": "run-s clean build",
@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s lint build",
+      "pre-commit": "run-s lint build test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
