@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/BlackGlory/jest-resolver/compare/v0.3.0...v0.3.1) (2023-06-11)
+
+
+### Bug Fixes
+
+* export src ([83a5092](https://github.com/BlackGlory/jest-resolver/commit/83a5092fa5e9465ca7302876dfead7efe0fb7568))
+
 ## [0.3.0](https://github.com/BlackGlory/jest-resolver/compare/v0.2.1...v0.3.0) (2022-11-04)
 
 
